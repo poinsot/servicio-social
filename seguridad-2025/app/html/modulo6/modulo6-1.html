@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html data-pagina="modulo6"> <!-- data-pagina para la clave generada -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+        <title>Tema 2: Las Plagas | CVA - Centro Virtual de Aprendizaje</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="../../assets/images/logo/favicon.png">
+
+        <!-- plugins css -->
+        <link rel="stylesheet" href="../../assets/vendors/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="../../assets/vendors/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../assets/vendors/PACE/themes/blue/pace-theme-minimal.css" />
+        <link rel="stylesheet" href="../../assets/vendors/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+
+                <link rel="stylesheet" href="../../assets/css/modulos/audio.css" />
+
+
+        <!-- core css -->
+        <link href="../../assets/css/ei-icon.css" rel="stylesheet">
+        <link href="../../assets/css/themify-icons.css" rel="stylesheet">
+        <link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../assets/css/animate.min.css" rel="stylesheet">
+        <link href="../../assets/css/app.css" rel="stylesheet">
+        <link href="../../assets/css/progress.css" rel="stylesheet">
+        <link href="../../assets/css/progress-circle.css" rel="stylesheet">
+
+        <!-- generador de claves -->
+        <script src="../../assets/js/auth.js"></script>
+
+    </head>
+
+    <body class="header-info side-nav-dark">
+        <div class="app">
+            <div class="layout">
+                <!-- Side Nav START -->
+                <div class="side-nav" id="sideNav">
+                
+                </div>
+                <!-- Side Nav END -->
+
+                <!-- Page Container START -->
+                <div class="page-container">
+                    <!-- Header START -->
+                    <div class="header navbar">
+                        
+                    </div>
+                    <!-- Header END -->
+
+
+                      <!-- Content Wrapper START -->
+                      <div class="main-content">
+                            <div class="container-fluid">
+
+
+
+                                <!-- Your content goes here -->
+                                <div class="clave-acceso">
+                                    <div>
+                                        <div>
+                                            <label style="font-size: 16px;">Coloque la clave que se te proporcionó al final de la unidad anterior para comenzar 
+                                                ahora con esta unidad.</label>
+                                            <div class="d-flex justify-content-center">
+                                                <input type="number" id="claveIngresada" class="form-control width-30" aria-describedby="passwordHelpBlock" required>
+                                            </div>
+                                        </div> 
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn button-pass width-30 btn-lg mrg-top-20" onclick="verificar()">Acceder</button>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <p id="mensaje"></p>
+                                            <p id="acceso"></p>
+                                        </div>
+                                    </div>
+                                </div>  
+                                
+                
+                                
+
+                            </div>
+                      </div>
+                      <!-- Content Wrapper END -->
+
+                      <!-- Footer START -->
+                    <footer class="content-footer">
+                        
+                    </footer>
+                    <!-- Footer END -->
+                  </div>
+                  <!-- Page Container END -->
+                </div>
+        </div>
+
+        <!-- verificar clave -->
+        <script>
+            // Obtiene el ID de la página desde el atributo data-pagina
+            const paginaId = document.documentElement.dataset.pagina;
+
+            // Verifica si el usuario ya tiene acceso
+            if (tieneAcceso(paginaId)) {
+                document.getElementById("acceso").innerHTML = "<p>Acceso concedido previamente. Puedes ingresar directamente.</p>";
+                redirigirPagina(paginaId); // Redirige automáticamente si el acceso ya fue concedido
+            }
+
+            // Función de verificación reutilizable
+            function verificar() {
+                const claveIngresada = document.getElementById("claveIngresada").value;
+                verificarClave(paginaId, claveIngresada);
+                console.log("Claves de acceso guardadas:");
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith("clave_") || key.startsWith("acceso_")) {
+                        console.log(`${key}: ${localStorage.getItem(key)}`);
+                    }
+                }
+            }
+
+        </script>
+
+        <!-- build:js assets/js/vendor.js -->
+        <!-- plugins js -->
+        <script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="../../assets/js/recycled/navigationbar.js"></script>
+        <script src="../../assets/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="../../assets/vendors/bootstrap/dist/js/bootstrap.js"></script>
+      <script src="../../assets/vendors/PACE/pace.min.js"></script>
+        <script src="../../assets/vendors/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+
+        <!-- Audio Script -->
+        <script src="../../assets/js/recycled/audio.js"></script>
+
+        <!-- Progress plugins -->
+        <script src="../../assets/js/progressbar.js"></script>
+        <script src="../../assets/js/progress-circle.js"></script>
+
+        <!-- endbuild -->
+
+        <!-- build:js assets/js/app.min.js -->
+        <!-- core js -->
+        <script src="../../assets/js/app.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+
+        <!-- Aquí se inserta el porcentage del círculo de progreso como una fracción -->
+        <script type="text/javascript">show(0.33)</script>
+
+        <!-- endbuild -->
+
+        <!-- Insert your dependencies here -->
+
+        <script>
+            var pass1 = "15483";
+
+        function check()
+        {
+            var pass2 = document.getElementById("inputPassword5").value;
+            var boton = document.getElementById("password-button")
+                if (pass1 == pass2) 
+                {
+                    boton.disabled = false;
+                    boton.classList.remove("incorrect");
+                    boton.classList.add("correct");
+                    boton.innerHTML = "Ingresar";
+                }
+                else {
+                    boton.disabled = true;
+                    boton.classList.remove("correct");
+                    boton.classList.add("incorrect");
+                    boton.innerHTML = "Incorrecto!";
+                }
+        }
+        </script>
+
+    </body>
+</html>

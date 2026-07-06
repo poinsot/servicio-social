@@ -1,0 +1,84 @@
+
+        .flipCard {
+            position: relative;
+            height: 100%;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transform-origin: center;
+            -webkit-transition: all 1s;
+            transition: all 1s;
+            flex: 0.5;
+            margin: 1%;
+          }
+  
+          .flipCard.is-flipped {
+            -webkit-transform: rotateX(-180deg);
+            transform: rotateX(-180deg);
+            flex-grow: 3;
+          }
+  
+          .card-face {
+            display: flex;
+            flex-direction: column;
+            align-content: flex-end;
+            justify-content: flex-end;
+            position: absolute;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            backface-visibility: hidden;
+            vertical-align: middle;
+          }
+  
+          .card-face-back {
+            background: #093b8b;
+            border-style: solid;
+            border-color: black;
+            border-width: 3px;
+            -webkit-transform: rotateY(180deg) rotateZ(180deg);
+            transform: rotateY(180deg) rotateZ(180deg);
+            -webkit-transition: all 1s;
+            transition: all 1s;
+          }
+  
+          .card-face-back::before {
+            content: " ";
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+          }
+          .card-face h3 {
+            color: white;
+            text-decoration: underline;
+            font-weight: bold;
+            display: block;
+            margin: 2%;
+            margin-top: 0;
+            z-index: 2;
+          }
+  
+          .card-face p {
+            color: white;
+            font-size: 1rem;
+            font-style: normal;
+            display: block;
+            margin: 2%;
+            margin-top: 0;
+            z-index: 2;
+          }
+  
+          @media only screen and (max-width: 767px) {
+            .flipCard {
+              min-height: 50px;
+            }
+            .flipCard.is-flipped {
+              min-height: 300px;
+            }
+          }

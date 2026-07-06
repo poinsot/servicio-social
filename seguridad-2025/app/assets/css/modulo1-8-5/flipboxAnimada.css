@@ -1,0 +1,56 @@
+
+        .flip-box {
+            background-color: transparent;
+            width: 80%;
+            height: 15rem;
+            border: 1px solid #ecf0f1;
+            perspective: 1000px; 
+            border-radius: 50px;
+            padding: 15px;
+          }
+  
+          .flip-box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 50px;
+          }
+  
+          .flip-box:hover .flip-box-inner {
+            transform: rotateY(180deg);
+          }
+  
+          .flip-box-front, .flip-box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; 
+            backface-visibility: hidden;
+            border-radius: 50px;
+          }
+  
+  
+          .flip-box-front {
+            background-color: #ecf0f1;
+            color: #093b8b;
+            border-radius: 50px;
+          }
+  
+  
+          .flip-box-back {
+            background-color: #ecf0f1;
+            color: #093b8b;
+            transform: rotateY(180deg);
+            border-radius: 50px;
+          } 
+  
+          h2{
+            padding: 10px;
+          }
+  
+          p, h2 {
+            color: #093b8b;
+          }

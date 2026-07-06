@@ -1,0 +1,108 @@
+/* ── Compact circular audio player ── */
+.audio-player {
+    --size: 44px;
+    --stroke: 3px;
+    --color-accent: #f19e38;
+    --color-track: #e5e5e5;
+    --color-icon: #3D3132;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: .6rem;
+    flex-shrink: 0;
+}
+
+/* SVG progress ring behind the button */
+.audio-player .progress-ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+.audio-player .progress-ring__track {
+    fill: none;
+    stroke: var(--color-track);
+    stroke-width: var(--stroke);
+}
+
+.audio-player .progress-ring__fill {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: var(--stroke);
+    stroke-linecap: round;
+    transition: stroke-dashoffset .15s linear;
+}
+
+/* Play / pause button */
+.audio-player .player-button {
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: 0;
+    width: calc(var(--size) - var(--stroke) * 4);
+    height: calc(var(--size) - var(--stroke) * 4);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background .2s;
+}
+
+.audio-player .player-button:hover {
+    background: rgba(241, 158, 56, .12);
+}
+
+.audio-player .player-button svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tooltip on hover */
+.audio-player::after {
+    content: "Escuchar audio";
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    font-size: .7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+}
+
+.audio-player:hover::after {
+    opacity: 1;
+}
+
+/* Hide elements from old markup that may still be present */
+.audio-player .timeline,
+.audio-player .sound-button,
+.audio-player .controls {
+    display: none;
+}
+
+/* Audio player overlay on image */
+.audio-player.audio-overlay {
+    --size: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}

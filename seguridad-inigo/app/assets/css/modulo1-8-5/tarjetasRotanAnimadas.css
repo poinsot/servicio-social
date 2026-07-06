@@ -1,0 +1,90 @@
+.tarjetas {
+  transform-style: preserve-3d;
+}
+
+.tarjetas .box {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 20px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.tarjetas .box .body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: 0.9s ease;
+}
+
+.tarjetas .box .body .imgContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.tarjetas .box .body .imgContainer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tarjetas .box .body .content:not(.weird) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}
+.tarjetas .box .body .content.weird {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fe0061, #ffeb3b);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}
+
+.tarjetas .box:hover .body {
+  transform: rotateY(180deg);
+}
+
+.tarjetas .box .body .content:not(.weird) div {
+  transform-style: preserve-3d;
+  padding: 20px;
+  background: linear-gradient(45deg, #fe0061, #ffeb3b);
+  transform: translateZ(100px);
+}
+.tarjetas .box .body .content .weird div {
+  transform-style: preserve-3d;
+  padding: 20px;
+  /* background: linear-gradient(45deg, #FE0061,#FFEB3B); */
+  transform: translateZ(100px);
+}
+
+.tarjetas .box .body .content div h3 {
+  letter-spacing: 1px;
+}
+
+.embed-responsive {
+  max-width: 900px;
+  justify-content: center;
+}
