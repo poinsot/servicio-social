@@ -4862,6 +4862,7 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
  * Markup: .alert.alert-warning.course-warning-narrow.d-flex + icono + <div><i>…</i></div>
  */
 .course-warning-narrow {
+  width: fit-content;
   max-width: 85%;
   margin-left: 0;
   margin-right: auto;
@@ -4875,10 +4876,50 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 .course-warning-narrow .fa-exclamation-triangle {
   flex-shrink: 0;
   color: #3d3132;
+  font-size: 1.1rem !important;
+  transform: none !important;
+  margin-top: 0.15rem !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
 }
 
-.course-warning-narrow > div i {
+/*
+ * Algunas advertencias usan un .row/.col-N interno en vez del patrón simple
+ * icono + <div><i>...</i></div>. Ese grid porcentual rompe el "width: fit-content"
+ * de arriba (el texto queda forzado a 2 líneas y no reacciona al ancho disponible).
+ * Normalizamos ese .row para que se comporte como el patrón simple: icono con
+ * ancho natural, texto flexible que puede crecer/encoger y ajustar el wrap.
+ */
+.course-warning-narrow > .row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start !important;
+  width: auto;
+  margin: 0;
+}
+
+.course-warning-narrow > .row > [class*="col-"] {
+  width: auto;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.course-warning-narrow > .row > [class*="col-"]:first-child {
+  flex: 0 0 auto;
+}
+
+.course-warning-narrow > .row > [class*="col-"]:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.course-warning-narrow > div i:not(.fa) {
   font-style: italic;
+}
+
+.course-warning-narrow .fa-exclamation-triangle {
+  font-style: normal !important;
 }
 
 /* Indicación junto al reproductor circular de audio (estilo tipo “ve el siguiente video”) */
@@ -5221,7 +5262,7 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] p strong,
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] li:not(.course-ol-num-bold > li) b,
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] li:not(.course-ol-num-bold > li) strong {
-  font-weight: 400;
+  font-weight: 700;
   color: #000000;
 }
 
@@ -5233,7 +5274,7 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 
 .main-content .card:not(.widget-feed) .ending-card [class*="pdd"] :is(p, li) :is(b, strong) {
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] h2:not(.card-title),
@@ -5244,7 +5285,7 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] h2:not(.card-title) b,
 .main-content .card:not(.widget-feed) :is(.card-horizon, .card-block) [class*="pdd"] h3:not(.card-title) b {
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .main-content .card:not(.widget-feed) .alert-warning b,
@@ -5493,8 +5534,19 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 }
 
 .main-content .course-lesson-split-row .mod3-7-casco-photo .course-lesson-split__img {
-  max-height: 300px;
   object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .main-content .course-lesson-split-row .mod3-7-casco-photo .course-lesson-split__img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (min-width: 768px) {
