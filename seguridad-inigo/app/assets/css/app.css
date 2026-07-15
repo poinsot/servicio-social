@@ -5024,7 +5024,6 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 .modulo2-sabias-que-row {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .modulo2-sabias-que-row .card-title {
@@ -5130,6 +5129,14 @@ body:not(.modulo-final-page) .page-container .main-content:has(> .container-flui
 .modulo2-qualif-twin-card > .modulo2-qualif-twin-card-grow {
   flex: 1 1 auto;
   min-height: 0;
+}
+
+/* Imagen más pequeña para que el texto debajo sea el foco principal */
+.modulo2-qualif-twin-card-grow img.figure-img {
+  width: 55% !important;
+  max-width: 220px;
+  margin: 0 auto;
+  display: block !important;
 }
 
 .modulo2-qualif-twin-audio {
