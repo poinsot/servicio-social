@@ -3935,21 +3935,25 @@ glyphs.character-mapping { margin: 0 0 20px 0; padding: 20px 0 20px 30px; color:
 
 .politicas-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-left: -4px;
   margin-right: -4px;
 }
 
 .politicas-actions__item {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 1 1 33.333%;
+  min-width: 140px;
+  max-width: 33.333%;
   padding: 0 4px;
+  margin-bottom: 8px;
 }
 
 .politicas-actions__btn {
   width: 100%;
   white-space: normal;
+  overflow-wrap: break-word;
   line-height: 1.25;
+  font-size: 0.85rem;
   padding: 0.5rem 0.35rem;
   min-height: 3.75rem;
   display: inline-flex;
@@ -3958,12 +3962,9 @@ glyphs.character-mapping { margin: 0 0 20px 0; padding: 20px 0 20px 30px; color:
 }
 
 @media only screen and (max-width: 767px) {
-  .politicas-actions {
-    flex-wrap: wrap;
-  }
-
   .politicas-actions__item {
     flex: 0 0 50%;
+    min-width: 0;
     max-width: 50%;
     margin-bottom: 8px;
   }
